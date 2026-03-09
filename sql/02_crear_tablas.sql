@@ -31,6 +31,7 @@ CREATE TABLE atencion (
     fecha_atencion DATE NOT NULL,
     descripcion TEXT NOT NULL,
     id_mascota INT NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
     id_profesional INT NOT NULL,
     CONSTRAINT fk_atencion_mascota
         FOREIGN KEY (id_mascota)
@@ -43,3 +44,4 @@ CREATE TABLE atencion (
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 );
+

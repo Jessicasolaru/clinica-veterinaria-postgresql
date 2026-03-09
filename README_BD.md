@@ -22,10 +22,12 @@ Diseñar e implementar una base de datos relacional para una clinica veterinaria
    ORDER BY table_name;
 
 3. Se insertaron registros en todas las tablas usando OVERRIDING SYSTEM VALUE para columnas identity (GENERATED ALWAYS). Verificacion ejecutada:
-   SELECT _ FROM dueno ORDER BY id_dueno;
-   SELECT _ FROM mascota ORDER BY id_mascota;
-   SELECT _ FROM profesional ORDER BY id_profesional;
-   SELECT _ FROM atencion ORDER BY id_atencion;
+
+```sql
+   SELECT * FROM dueno ORDER BY id_dueno;
+   SELECT * FROM mascota ORDER BY id_mascota;
+   SELECT * FROM profesional ORDER BY id_profesional;
+   SELECT * FROM atencion ORDER BY id_atencion;
 
 4. Consultas solicitadas:
 
@@ -35,8 +37,8 @@ Diseñar e implementar una base de datos relacional para una clinica veterinaria
 - Se actualizo la direccion de Juan Pérez.
 - Se elimino la atencion con id_atencion = 2.
   Verificaciones usadas:
-  SELECT _ FROM dueno WHERE nombre = 'Juan Pérez';
-  SELECT _ FROM atencion ORDER BY id_atencion;
+  SELECT * FROM dueno WHERE nombre = 'Juan Pérez';
+  SELECT * FROM atencion ORDER BY id_atencion;
 
 5. Transacción
    Se ejecuto una transaccion con BEGIN ... COMMIT que realizo:
@@ -52,9 +54,9 @@ BEGIN;
 COMMIT;
 
 Verificación:
-SELECT _ FROM mascota ORDER BY id_mascota;
-SELECT _ FROM atencion ORDER BY id_atencion;
-SELECT \* FROM dueno WHERE id_dueno = 1;
+SELECT * FROM mascota ORDER BY id_mascota;
+SELECT * FROM atencion ORDER BY id_atencion;
+SELECT * FROM dueno WHERE id_dueno = 1;
 
 6. Problemas encontrados:
    ERROR: cannot insert a non-DEFAULT value into column "id_dueno"
@@ -74,3 +76,4 @@ Se implementó correctamente una base de datos relacional en PostgreSQL para una
 Se aplicaron claves primarias, foraneas e integridad referencial.
 Se manipularon datos con INSERT, UPDATE, DELETE y consultas JOIN.
 Se aplico una transaccion para asegurar atomicidad en operaciones relacionadas.
+```

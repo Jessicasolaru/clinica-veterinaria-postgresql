@@ -21,12 +21,13 @@ VALUES
 (2, 'Dr. Pérez', 'Especialista en dermatología'),
 (3, 'Dr. López', 'Cardiólogo veterinario');
 
-INSERT INTO atencion (id_atencion, fecha_atencion, descripcion, id_mascota, id_profesional)
+INSERT INTO atencion (id_atencion, fecha_atencion, descripcion, id_mascota, tipo, id_profesional)
 OVERRIDING SYSTEM VALUE
 VALUES
-(1, '2025-03-01', 'Chequeo general', 1, 1),
-(2, '2025-03-05', 'Tratamiento dermatológico', 2, 2),
-(3, '2025-03-07', 'Consulta cardiológica', 3, 3);
+(1, '2025-03-01', 'Chequeo general', 1, 'Perro', 1),
+(2, '2025-03-05', 'Tratamiento dermatológico', 2, 'Gato', 2),
+(3, '2025-03-07', 'Consulta cardiológica', 3, 'Perro', 3);
+
 
 -- Reajustar secuencias para que el siguiente INSERT automatico no choque con IDs ya usados
 SELECT setval(pg_get_serial_sequence('dueno', 'id_dueno'), COALESCE(MAX(id_dueno), 1), true) FROM dueno;
