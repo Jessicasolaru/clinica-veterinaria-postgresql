@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict mcTqLHywTbxuQf0Aqoxpljhp7XvHXqMB85RaeUSSQ6IvMlboII9NL8VYlGgNqoE
+\restrict ahIUoLLaXinrNPkt0arEUqZfegLb7oBejvsuIxrq4sZh1y06i0P4VxX6qAIeAYV
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.2
 
--- Started on 2026-03-09 20:03:13 -03
+-- Started on 2026-03-09 20:39:41 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -35,7 +35,8 @@ CREATE TABLE public.atencion (
     fecha_atencion date NOT NULL,
     descripcion text NOT NULL,
     id_mascota integer NOT NULL,
-    id_profesional integer NOT NULL
+    id_profesional integer NOT NULL,
+    tipo character varying(50) NOT NULL
 );
 
 
@@ -152,10 +153,10 @@ ALTER TABLE public.profesional ALTER COLUMN id_profesional ADD GENERATED ALWAYS 
 -- Data for Name: atencion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.atencion (id_atencion, fecha_atencion, descripcion, id_mascota, id_profesional) FROM stdin;
-1	2025-03-01	Chequeo general	1	1
-3	2025-03-07	Consulta cardiológica	3	3
-4	2026-03-09	Control anual y vacunas	4	1
+COPY public.atencion (id_atencion, fecha_atencion, descripcion, id_mascota, id_profesional, tipo) FROM stdin;
+1	2025-03-01	Chequeo general	1	1	Perro
+3	2025-03-07	Consulta cardiológica	3	3	Perro
+4	2026-03-09	Control anual y vacunas	4	1	Perro
 \.
 
 
@@ -298,11 +299,11 @@ ALTER TABLE ONLY public.mascota
     ADD CONSTRAINT fk_mascota_dueno FOREIGN KEY (id_dueno) REFERENCES public.dueno(id_dueno) ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
--- Completed on 2026-03-09 20:03:14 -03
+-- Completed on 2026-03-09 20:39:41 -03
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict mcTqLHywTbxuQf0Aqoxpljhp7XvHXqMB85RaeUSSQ6IvMlboII9NL8VYlGgNqoE
+\unrestrict ahIUoLLaXinrNPkt0arEUqZfegLb7oBejvsuIxrq4sZh1y06i0P4VxX6qAIeAYV
 
