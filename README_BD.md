@@ -1,5 +1,7 @@
 # Base de Datos - Clinica Veterinaria (PostgreSQL + pgAdmin 4)
 
+Link GitHub: https://github.com/Jessicasolaru/clinica-veterinaria-postgresql/tree/main
+
 Diseñar e implementar una base de datos relacional para una clinica veterinaria en PostgreSQL usando pgAdmin 4, incluyendo:
 
 - Creacion de base de datos.
